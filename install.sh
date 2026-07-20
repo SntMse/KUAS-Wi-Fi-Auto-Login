@@ -39,7 +39,7 @@ echo ""
 
 # Define paths
 USER_HOME=$HOME
-SCRIPT_DIR="$USER_HOME/Scripts"
+SCRIPT_DIR="$USER_HOME/.local/bin"
 SCRIPT_PATH="$SCRIPT_DIR/kuas_wifi_macos.sh"
 PLIST_PATH="$USER_HOME/Library/LaunchAgents/com.kuas.wifi.auto.plist"
 CONF_PATH="$USER_HOME/.kuas_wifi.conf"
