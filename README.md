@@ -16,7 +16,7 @@ Open your terminal and run the following commands.
 ターミナルを開き、以下のコマンドを実行します。
 
 ```bash
-git clone [https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git)
+git clone https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git
 ```
 ```bash
 cd KUAS-Wi-Fi-Auto-Login
