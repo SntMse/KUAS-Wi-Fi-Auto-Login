@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # Installer for KUAS Wi-Fi Auto Login Script
 # Created by Shintaro Muraseh (SntMse)
-# v1.4
+# v1.5
 # -------------------------------------------------------------
 
 # 1. Determine terminal language for localization
@@ -46,6 +46,9 @@ if [ -n "$WIFI_INT" ]; then
     
     # Add kuas-guest (Index 2)
     networksetup -addpreferredwirelessnetworkatindex "$WIFI_INT" "kuas-guest" 2 WPA2 "kuas2022" > /dev/null 2>&1
+    
+    # Add oick-lan (Index 3)
+    networksetup -addpreferredwirelessnetworkatindex "$WIFI_INT" "oick-lan" 3 WPA2 "oick2022" > /dev/null 2>&1
 fi
 echo ""
 
