@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # Installer for KUAS Wi-Fi Auto Login Script
 # Created by Shintaro Muraseh (SntMse)
-# v1.2
+# v1.3
 # -------------------------------------------------------------
 
 # 1. Determine terminal language for localization
@@ -52,7 +52,8 @@ echo ""
 # Define paths
 USER_HOME=$HOME
 SCRIPT_DIR="$USER_HOME/.local/bin"
-SCRIPT_PATH="$SCRIPT_DIR/kuas_wifi_macos.sh"
+# ここでファイル名を変更し、システム設定上でカッコよく表示されるようにします
+SCRIPT_PATH="$SCRIPT_DIR/SntMse-KUAS-Wi-Fi-Auto-Login"
 PLIST_PATH="$USER_HOME/Library/LaunchAgents/com.sntmse.kuas.wifi.autologin.plist"
 CONF_PATH="$USER_HOME/.kuas_wifi.conf"
 
@@ -67,6 +68,7 @@ cp ./kuas_wifi_macos.sh "$SCRIPT_PATH"
 chmod +x "$SCRIPT_PATH"
 
 # 7. Generate the launchd plist file dynamically
+# /bin/bash を介さず、直接実行することでプロセス名をスクリプト名にします
 cat << EOF > "$PLIST_PATH"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -76,7 +78,6 @@ cat << EOF > "$PLIST_PATH"
     <string>com.sntmse.kuas.wifi.autologin</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/bash</string>
         <string>$SCRIPT_PATH</string>
     </array>
     <key>StartInterval</key>
@@ -88,7 +89,6 @@ cat << EOF > "$PLIST_PATH"
 EOF
 
 # 8. Register the job with macOS launchd
-# Unload first to prevent errors if it is already registered
 launchctl unload "$PLIST_PATH" 2>/dev/null
 launchctl load "$PLIST_PATH"
 
