@@ -1,6 +1,6 @@
 # KUAS Wi-Fi Auto Login
 
-A set of scripts to automatically log in to the Kyoto University of Advanced Science (KUAS) campus Wi-Fi (`kuas-wlan`) in the background. Currently supports macOS (Windows support is planned for the future).
+A set of scripts to automatically log in to the Kyoto University of Advanced Science (KUAS) campus Wi-Fi (`kuas-wlan`) in the background. Currently supports macOS.
 It monitors the network every 5 minutes and automatically authenticates only when needed.
 
 京都先端科学大学（KUAS）の学内Wi-Fi（`kuas-wlan`）に接続した際、ブラウザを開くことなくバックグラウンドで自動ログインを行うスクリプト群です。現在はmacOSに対応しています。
