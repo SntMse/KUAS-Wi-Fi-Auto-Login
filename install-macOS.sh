@@ -15,17 +15,17 @@ fi
 
 # 2. Localize output messages
 if [ "$LANG_JP" = true ]; then
-    MSG_START="KUAS Wi-Fi 自動ログインのインストールを開始します..."
+    MSG_START="KUAS Wi-Fi自動ログイン (macOS版) のインストールを開始します..."
     MSG_PROMPT_USER="KUASの学籍番号（例: 2021m634）を入力してください: "
     MSG_PROMPT_PASS="パスワードを入力してください: "
     MSG_SUCCESS="インストールと設定が正常に完了しました！"
-    MSG_UPDATE="※認証情報を変更したい場合は、再度このスクリプト(./install.sh)を実行してください。"
+    MSG_UPDATE="※認証情報を変更したい場合は、再度このスクリプト(./install-macOS.sh)を実行してください。"
 else
-    MSG_START="Starting installation for KUAS Wi-Fi Auto Login..."
+    MSG_START="Starting installation for KUAS Wi-Fi Auto Login (macOS)..."
     MSG_PROMPT_USER="Enter your KUAS Student ID (e.g., 2021m634): "
     MSG_PROMPT_PASS="Enter your password: "
     MSG_SUCCESS="Installation and setup completed successfully!"
-    MSG_UPDATE="* To update your credentials, simply run this script (./install.sh) again."
+    MSG_UPDATE="* To update your credentials, simply run this script (./install-macOS.sh) again."
 fi
 
 echo "$MSG_START"
@@ -41,7 +41,7 @@ echo ""
 USER_HOME=$HOME
 SCRIPT_DIR="$USER_HOME/.local/bin"
 SCRIPT_PATH="$SCRIPT_DIR/kuas_wifi_macos.sh"
-PLIST_PATH="$USER_HOME/Library/LaunchAgents/com.kuas.wifi.auto.plist"
+PLIST_PATH="$USER_HOME/Library/LaunchAgents/com.sntmse.kuas.wifi.autologin.plist"
 CONF_PATH="$USER_HOME/.kuas_wifi.conf"
 
 # 4. Save credentials securely to a hidden config file
@@ -61,7 +61,7 @@ cat << EOF > "$PLIST_PATH"
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.kuas.wifi.auto</string>
+    <string>com.sntmse.kuas.wifi.autologin</string>
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
