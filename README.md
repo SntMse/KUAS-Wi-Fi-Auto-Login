@@ -22,10 +22,10 @@ git clone https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git
 cd KUAS-Wi-Fi-Auto-Login
 ```
 ```bash
-chmod +x install.sh
+chmod +x install-macOS.sh
 ```
 ```bash
-./install.sh
+./install-macOS.sh
 ```
 
 The installer will interactively ask for your student ID and password.
@@ -66,10 +66,10 @@ Run the following commands to remove the automation.
 自動化を解除したい場合は以下のコマンドを実行してください。
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/com.kuas.wifi.auto.plist
+launchctl unload ~/Library/LaunchAgents/com.sntmse.kuas.wifi.autologin.plist
 ```
 ```bash
-rm ~/Library/LaunchAgents/com.kuas.wifi.auto.plist
+rm ~/Library/LaunchAgents/com.sntmse.kuas.wifi.autologin.plist
 ```
 ```bash
 rm ~/.local/bin/kuas_wifi_macos.sh
