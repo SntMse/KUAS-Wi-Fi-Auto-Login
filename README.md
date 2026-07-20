@@ -1,19 +1,21 @@
-# KUAS-Wi-Fi-Auto-Login
-Auto Login Scripts for kuas-wlan
+# KUAS Wi-Fi Auto Login
 
-京都先端科学大学（KUAS）の学内Wi-Fi（`kuas-wlan`）に接続した際、ブラウザを開くことなくバックグラウンドで自動ログインを行うためのmacOS用スクリプトです。
-5分ごとにネットワークを監視し、未ログイン状態のときだけ自動で認証を通します。
+A set of scripts to automatically log in to the Kyoto University of Advanced Science (KUAS) campus Wi-Fi (`kuas-wlan`) in the background. Currently supports macOS (Windows support is planned for the future).
+It monitors the network every 5 minutes and automatically authenticates only when needed.
 
-## 動作環境
-- macOS (対応確認済み)
-- ターミナル (zsh 推奨)
+京都先端科学大学（KUAS）の学内Wi-Fi（`kuas-wlan`）に接続した際、ブラウザを開くことなくバックグラウンドで自動ログインを行うスクリプト群です。現在はmacOSに対応しています（将来的にWindows版も追加予定です）。5分ごとにネットワークを監視し、未ログイン状態のときだけ自動で認証を通します。
 
-## インストール手順
+## Requirements / 動作環境
+- macOS
+- Terminal
 
-### 1. スクリプトのダウンロードと配置
-ターミナルを開き、以下のコマンドを順番に実行してスクリプトを配置します。
+## Installation (macOS) / インストール手順 (macOS)
+
+Open your terminal and run the following commands.
+ターミナルを開き、以下のコマンドを実行します。
 
 ```bash
-mkdir -p ~/Scripts
-curl -o ~/Scripts/kuas_wifi.sh [https://raw.githubusercontent.com/SntMse/KUAS-Wi-Fi-Auto-Login/main/kuas_wifi_macOS.sh](https://raw.githubusercontent.com/SntMse/KUAS-Wi-Fi-Auto-Login/main/kuas_wifi_macOS.sh)
-chmod +x ~/Scripts/kuas_wifi_macOS.sh
+git clone [https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git)
+cd KUAS-Wi-Fi-Auto-Login
+chmod +x install.sh
+./install.sh
