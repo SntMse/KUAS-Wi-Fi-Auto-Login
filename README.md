@@ -49,6 +49,12 @@ If you change your KUAS password, simply navigate to the repository folder and r
 
 パスワードを変更した場合は、再度 ./install.sh を実行することで上書き更新できます。
 
+## Bug Reports & Issues / バグ報告・不具合について
+
+If you encounter any bugs, issues, or have feature requests, please report them on the [GitHub Issues page]([url](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/issues)).
+
+バグや問題を発見した場合、または機能の要望がある場合は、[GitHubのIssueページ]([url](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/issues))にて報告をお願いします。
+
 ## How it works / 仕組み
 Your credentials are saved securely in a hidden config file (~/.kuas_wifi.conf) with restricted permissions (chmod 600). The password is never stored in the script itself.
 
@@ -66,7 +72,7 @@ launchctl unload ~/Library/LaunchAgents/com.kuas.wifi.auto.plist
 rm ~/Library/LaunchAgents/com.kuas.wifi.auto.plist
 ```
 ```bash
-rm ~/Scripts/kuas_wifi_macos.sh
+rm ~/.local/bin/kuas_wifi_macos.sh
 ```
 ```bash
 rm ~/.kuas_wifi.conf
