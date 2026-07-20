@@ -14,6 +14,7 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 ## Requirements / 動作環境
 - macOS
 - Terminal
+- KUAS On Campus ID
 
 ## Installation (macOS) / インストール手順 (macOS)
 
