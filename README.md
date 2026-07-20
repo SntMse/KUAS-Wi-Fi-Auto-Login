@@ -7,6 +7,8 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 
 ## Features / 主な機能
 - **Auto Wi-Fi Profile Setup**: Automatically registers the `kuas-wlan` SSID and shared password to your Mac. (Wi-Fiの接続設定と共通パスワードをMacに自動登録します)
+- **Smart Connectivity Check**: Uses HTTP requests to reliably check internet access, bypassing ICMP (Ping) blocks on the university network. (大学のネットワーク制限(Pingブロック)を回避するため、HTTPリクエストによる確実な接続チェックを行います)
+- **Library Fallback**: Automatically retries with the Main Library credentials (`libwifi`) if the standard login fails. (通常のログインに失敗した場合、自動的に図書館本館の認証情報で再試行します)
 - **Background Authentication**: Bypasses the captive portal by authenticating in the background every 5 minutes if disconnected. (未ログイン状態のときだけ、5分ごとに自動でWeb認証を通します)
 
 ## Requirements / 動作環境
@@ -40,6 +42,12 @@ macOS標準のログイン画面（ポップアップ）が立ち上がるとバ
 If you use a VPN with an "Auto-connect" or "On-Demand" feature, it may block the authentication request. Please add kuas-wlan to your VPN's "Trusted Networks" or exclude it from auto-connection.
 
 VPNの自動接続（オンデマンド接続）が有効になっていると、学内サーバーへの認証通信がVPNに吸い込まれてしまい、ログインに失敗します。お使いのVPNアプリ（NordVPNなど）の設定で、kuas-wlan を「信頼できるネットワーク（自動接続の除外対象）」に登録してください。
+
+### 3. Unverified at Kameoka Campus / 亀岡キャンパスでの動作未確認
+
+Currently, this script has not been tested at the Kyoto Kameoka Campus. It may or may not work depending on the network environment there.
+
+現在、京都亀岡キャンパスでの動作確認は行えていません。現地のネットワーク環境（SSIDや認証サーバーの違いなど）によっては正常に動作しない可能性があります。
 
 ## Updating Credentials / 認証情報の変更
 If you change your KUAS password, simply navigate to the repository folder and run ./install-macOS.sh again to update your saved credentials.
