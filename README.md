@@ -15,5 +15,5 @@ Auto Login Scripts for kuas-wlan
 
 ```bash
 mkdir -p ~/Scripts
-curl -o ~/Scripts/kuas_wifi.sh [https://raw.githubusercontent.com/SntMse/KUAS-Wi-Fi-Auto-Login/main/kuas_wifi.sh](https://raw.githubusercontent.com/SntMse/KUAS-Wi-Fi-Auto-Login/main/kuas_wifi.sh)
-chmod +x ~/Scripts/kuas_wifi.sh
+curl -o ~/Scripts/kuas_wifi.sh [https://raw.githubusercontent.com/SntMse/KUAS-Wi-Fi-Auto-Login/main/kuas_wifi_macOS.sh](https://raw.githubusercontent.com/SntMse/KUAS-Wi-Fi-Auto-Login/main/kuas_wifi_macOS.sh)
+chmod +x ~/Scripts/kuas_wifi_macOS.sh
