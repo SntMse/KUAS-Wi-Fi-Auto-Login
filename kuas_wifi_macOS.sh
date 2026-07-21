@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for macOS
 # Created by Shintaro Muraseh (SntMse)
-# v1.9 (Captive Portal 302 Redirect Fix)
+# v1.10 (Fixed login messages)
 # -------------------------------------------------------------
 
 # 1. Determine system language
@@ -19,9 +19,9 @@ if [ "$LANG_JP" = true ]; then
     MSG_LOGGING_IN="KUAS Wi-Fiの認証画面を検出しました。ログインしています..."
     MSG_LOGGING_IN_LIB="図書館本館の認証情報で再試行しています..."
     MSG_OUT_OF_RANGE="KUAS Wi-Fi圏外、または他のネットワークにいます。"
-    NOTIFY_TITLE="SntMse KUAS Wi-Fi自動化"
+    NOTIFY_TITLE="SntMse KUAS Wi-Fi自動ログイン"
     NOTIFY_MSG_SUCCESS="KUAS Wi-Fiに自動ログインしました。"
-    NOTIFY_MSG_SUCCESS_LIB="図書館のWi-Fiに自動ログインしました。"
+    NOTIFY_MSG_SUCCESS_LIB="図書館本館のWi-Fiに自動ログインしました。"
     NOTIFY_MSG_FAIL="認証に失敗しました。パスワードを確認してください。"
 else
     MSG_ALREADY_CONN="Already connected to the internet."
@@ -30,7 +30,7 @@ else
     MSG_OUT_OF_RANGE="Out of KUAS Wi-Fi range or on another network."
     NOTIFY_TITLE="SntMse KUAS Wi-Fi Auto Login"
     NOTIFY_MSG_SUCCESS="Automatically logged in to KUAS Wi-Fi."
-    NOTIFY_MSG_SUCCESS_LIB="Automatically logged in to Library Wi-Fi."
+    NOTIFY_MSG_SUCCESS_LIB="Automatically logged in to Main Library Wi-Fi."
     NOTIFY_MSG_FAIL="Authentication failed. Please check your credentials."
 fi
 
