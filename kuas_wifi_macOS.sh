@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for macOS
 # Created by Shintaro Muraseh (SntMse)
-# v1.8 (SSID-Agnostic / Privacy Bypass Edition)
+# v1.9 (Captive Portal 302 Redirect Fix)
 # -------------------------------------------------------------
 
 # 1. Determine system language
@@ -53,12 +53,11 @@ fi
 # =============================================================
 # 5. Step 2: KUASのログインサーバーが見えるかテスト
 # =============================================================
-# HTTPSでアクセスし、HTTPステータスコード（正常なら200）だけを取得
 KUAS_STATUS=$(curl -s -m 3 -o /dev/null -w "%{http_code}" https://uzwlan03.kuas.ac.jp/auth/index.html/u)
 
-if [ "$KUAS_STATUS" = "200" ]; then
+# ★修正ポイント: 200(OK)だけでなく、302や303(リダイレクト)も許可する
+if [[ "$KUAS_STATUS" == "200" || "$KUAS_STATUS" == "302" || "$KUAS_STATUS" == "303" ]]; then
     
-    # サーバーが見えた＝KUASのWi-Fiに繋がっている！
     echo "$MSG_LOGGING_IN"
     
     # メインの学籍番号でログイン実行
@@ -90,6 +89,5 @@ if [ "$KUAS_STATUS" = "200" ]; then
     fi
 
 else
-    # インターネットに繋がっておらず、KUASのサーバーも見えない（スタバのWi-Fiなど）
     echo "$MSG_OUT_OF_RANGE"
 fi
