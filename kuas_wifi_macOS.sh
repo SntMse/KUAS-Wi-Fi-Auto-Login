@@ -2,8 +2,8 @@
 
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for macOS
-# Created by Shintaro Muraseh (SntMse)
-# v1.1
+# Created by Shintaro Murase (SntMse)
+# v1.2
 # -------------------------------------------------------------
 
 # 1. Determine system language for localization
@@ -19,6 +19,7 @@ if [ "$LANG_JP" = true ]; then
     MSG_LOGGING_IN="KUAS Wi-Fiにログインしています..."
     MSG_LOGGING_IN_LIB="図書館本館の認証情報で再試行しています..."
     MSG_NOT_CONN="kuas-wlanに接続されていません。現在のSSID: "
+    MSG_NO_WIFI="現在どのWi-Fiネットワークにも接続されていません。"
     NOTIFY_TITLE="SntMse KUAS Wi-Fi自動化ログイン"
     NOTIFY_MSG_SUCCESS="KUAS Wi-Fiに自動ログインしました。"
     NOTIFY_MSG_SUCCESS_LIB="図書館のWi-Fiに自動ログインしました。"
@@ -28,6 +29,7 @@ else
     MSG_LOGGING_IN="Logging in to KUAS Wi-Fi..."
     MSG_LOGGING_IN_LIB="Retrying with Main Library credentials..."
     MSG_NOT_CONN="Not connected to kuas-wlan. Current SSID: "
+    MSG_NO_WIFI="You are not connected to any Wi-Fi network."
     NOTIFY_TITLE="SntMse KUAS Wi-Fi Auto Login"
     NOTIFY_MSG_SUCCESS="Automatically logged in to KUAS Wi-Fi."
     NOTIFY_MSG_SUCCESS_LIB="Automatically logged in to Library Wi-Fi."
@@ -58,8 +60,9 @@ check_internet() {
     fi
 }
 
-# 4. Get the current Wi-Fi network name (SSID)
-SSID=$(networksetup -getairportnetwork en0 | awk '{print $4}')
+# 4. Get the current Wi-Fi network name (SSID) securely
+# コロン (:) で分割し、不要なスペースを削除する安全な方法に変更
+SSID=$(networksetup -getairportnetwork en0 | awk -F": " '{print $2}')
 
 # 5. Check if connected to KUAS Wi-Fi
 if [ "$SSID" = "kuas-wlan" ]; then
@@ -103,5 +106,10 @@ if [ "$SSID" = "kuas-wlan" ]; then
         fi
     fi
 else
-    echo "${MSG_NOT_CONN}${SSID}"
+    # 接続されていない場合と、別のWi-Fiにいる場合で出力を分ける
+    if [ -z "$SSID" ]; then
+        echo "$MSG_NO_WIFI"
+    else
+        echo "${MSG_NOT_CONN}${SSID}"
+    fi
 fi
