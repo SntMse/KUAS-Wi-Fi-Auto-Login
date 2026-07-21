@@ -6,7 +6,7 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 京都先端科学大学（KUAS）の学内Wi-Fi（`kuas-wlan`）に接続した際、ブラウザを開くことなくバックグラウンドで自動ログインを行うスクリプト群です。現在はmacOSに対応しています。`kuas-wlan-Wifi6`には現状、対応していません。
 
 ## Features / 主な機能
-- **Auto Wi-Fi Profile Setup**: Automatically registers the `kuas-wlan` SSID and shared password to your Mac. (Wi-Fiの接続設定と共通パスワードをMacに自動登録します)
+- **Auto Wi-Fi Profile Setup**: Automatically registers the KUAS Wi-Fi (`kuas-wlan`, `kuas-guest`, `kuas-fclan`) SSID and shared password to your Mac. (Wi-Fiの接続設定と共通パスワードをMacに自動登録します)
 - **Smart Connectivity Check**: Uses HTTP requests to reliably check internet access, bypassing ICMP (Ping) blocks on the university network. (大学のネットワーク制限(Pingブロック)を回避するため、HTTPリクエストによる確実な接続チェックを行います)
 - **Library Fallback**: KUAS Main Library (Kameoka) uses different credentials. This script automatically retries with the Main Library credentials (`libwifi`) if the standard login fails. (亀岡の図書館本館は接続に別のIDを使用します。通常のログインに失敗した場合、自動的に図書館本館の認証情報で再試行します)
 - **Background Authentication**: Bypasses the captive portal by authenticating in the background every 5 minutes if disconnected. (未ログイン状態のときだけ、5分ごとに自動でWeb認証を通します)
@@ -14,7 +14,6 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 ## Requirements / 動作環境
 - macOS
 - Terminal
-- KUAS On Campus ID
 
 ## Installation (macOS) / インストール手順 (macOS)
 
