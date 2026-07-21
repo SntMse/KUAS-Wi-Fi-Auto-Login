@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for macOS
 # Created by Shintaro Muraseh (SntMse)
-# v1.10 (Fixed login messages)
+# v1.11 (Fixed login messages & Secure POST)
 # -------------------------------------------------------------
 
 # 1. Determine system language
@@ -61,10 +61,10 @@ if [[ "$KUAS_STATUS" == "200" || "$KUAS_STATUS" == "302" || "$KUAS_STATUS" == "3
     echo "$MSG_LOGGING_IN"
     
     # メインの学籍番号でログイン実行
+    # プロセス一覧(ps)へのパスワード露出を防ぐため、標準入力(stdin)から渡す
     curl -X POST "https://uzwlan03.kuas.ac.jp/auth/index.html/u" \
-         -d "user=${KUAS_USER}" \
-         -d "password=${KUAS_PASS}" \
-         -s -o /dev/null
+         -d @- \
+         -s -o /dev/null <<< "user=${KUAS_USER}&password=${KUAS_PASS}"
          
     sleep 3
     
@@ -74,10 +74,11 @@ if [[ "$KUAS_STATUS" == "200" || "$KUAS_STATUS" == "302" || "$KUAS_STATUS" == "3
     else
         # 失敗した場合は図書館用でフォールバック
         echo "$MSG_LOGGING_IN_LIB"
+        
+        # こちらも同様に標準入力(stdin)から渡す
         curl -X POST "https://uzwlan03.kuas.ac.jp/auth/index.html/u" \
-             -d "user=libwifi" \
-             -d "password=Kuaslib2023" \
-             -s -o /dev/null
+             -d @- \
+             -s -o /dev/null <<< "user=libwifi&password=Kuaslib2023"
              
         sleep 3
         
