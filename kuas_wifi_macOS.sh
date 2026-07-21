@@ -2,8 +2,8 @@
 
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for macOS
-# Created by Shintaro Murase (SntMse)
-# v1.2
+# Created by Shintaro Muraseh (SntMse)
+# v1.3
 # -------------------------------------------------------------
 
 # 1. Determine system language for localization
@@ -60,18 +60,21 @@ check_internet() {
     fi
 }
 
-# 4. Get the current Wi-Fi network name (SSID) securely
-# コロン (:) で分割し、不要なスペースを削除する安全な方法に変更
-SSID=$(networksetup -getairportnetwork en0 | awk -F": " '{print $2}')
+# 4. Dynamically find the Wi-Fi interface (en0, en1, etc.)
+WIFI_INT=$(networksetup -listallhardwareports | awk '/Hardware Port: Wi-Fi/{getline; print $2}')
 
-# 5. Check if connected to KUAS Wi-Fi
+# 5. Get the current Wi-Fi network name (SSID) securely
+# コロンとそれに続くスペースを区切り文字として、確実にSSID名だけを抽出する
+SSID=$(networksetup -getairportnetwork "$WIFI_INT" | awk -F": *" '{print $2}')
+
+# 6. Check if connected to KUAS Wi-Fi
 if [ "$SSID" = "kuas-wlan" ]; then
     
-    # 6. Check initial internet connectivity
+    # 7. Check initial internet connectivity
     if check_internet; then
         echo "$MSG_ALREADY_CONN"
     else
-        # 7. First Attempt: Use Personal Credentials
+        # 8. First Attempt: Use Personal Credentials
         echo "$MSG_LOGGING_IN"
         curl -X POST "https://uzwlan03.kuas.ac.jp/auth/index.html/u" \
              -d "user=${KUAS_USER}" \
@@ -81,11 +84,11 @@ if [ "$SSID" = "kuas-wlan" ]; then
         # Wait for network to stabilize
         sleep 3
         
-        # 8. Check if First Attempt was successful
+        # 9. Check if First Attempt was successful
         if check_internet; then
             osascript -e "display notification \"$NOTIFY_MSG_SUCCESS\" with title \"$NOTIFY_TITLE\""
         else
-            # 9. Second Attempt: Fallback to Library Credentials
+            # 10. Second Attempt: Fallback to Library Credentials
             echo "$MSG_LOGGING_IN_LIB"
             curl -X POST "https://uzwlan03.kuas.ac.jp/auth/index.html/u" \
                  -d "user=libwifi" \
@@ -95,7 +98,7 @@ if [ "$SSID" = "kuas-wlan" ]; then
             # Wait again
             sleep 3
             
-            # 10. Final Check
+            # 11. Final Check
             if check_internet; then
                 # Success in Library
                 osascript -e "display notification \"$NOTIFY_MSG_SUCCESS_LIB\" with title \"$NOTIFY_TITLE\""
