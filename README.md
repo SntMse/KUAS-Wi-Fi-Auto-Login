@@ -28,6 +28,7 @@ It monitors the network every 5 minutes and automatically authenticates only whe
   * [Important Notes / 注意事項](#important-notes--注意事項-windows)
   * [Uninstallation / アンインストール](#uninstallation-windows--アンインストール方法-windows)
 * [How it works / 仕組み](#how-it-works--仕組み)
+  * [Updating Credentials / 認証情報の変更](#updating-credentials--認証情報の変更)
 * [Bug Reports & Issues / バグ報告・不具合について](#bug-reports--issues--バグ報告不具合について)
 
 ---
