@@ -15,15 +15,16 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 ---
 
 ## Table of Contents / 目次
-* [How to Download / ダウンロード方法](#how-to-download--ダウンロード方法)
-* [For macOS](#for-macos)
+* [macOS](#macos)
   * [Requirements / 動作環境](#requirements--動作環境-macos)
+  * [How to Download / ダウンロード方法](#how-to-download--ダウンロード方法-macos)
   * [Installation / インストール](#installation--インストール-macos)
   * [Important Notes / 注意事項](#important-notes--注意事項-macos)
   * [Troubleshooting / トラブルシューティング](#troubleshooting--トラブルシューティング-macos)
   * [Uninstallation / アンインストール](#uninstallation-macos--アンインストール方法-macos)
-* [For Windows](#for-windows)
+* [Windows](#windows)
   * [Requirements / 動作環境](#requirements--動作環境-windows)
+  * [How to Download / ダウンロード方法](#how-to-download--ダウンロード方法-windows)
   * [Installation / インストール](#installation--インストール-windows)
   * [Important Notes / 注意事項](#important-notes--注意事項-windows)
   * [Uninstallation / アンインストール](#uninstallation-windows--アンインストール方法-windows)
@@ -33,16 +34,24 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 
 ---
 
-## How to Download / ダウンロード方法
+
+# macOS
+
+## Requirements / 動作環境 (macOS)
+* macOS
+* Terminal (ターミナル)
+* KUAS On Campus ID (KUAS学内ネットワークID)
+
+## How to Download / ダウンロード方法 (macOS)
 
 Choose one of the following methods to download the scripts to your computer.
 以下のいずれかの方法で、スクリプトをパソコンにダウンロードしてください。
 
-#### Option A: Download as a ZIP file (Recommended for Windows) / ZIPでダウンロード（Windowsにおすすめ）
+### Option A: Download as a ZIP file / ZIPでダウンロード
 1. Click [here](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/archive/refs/heads/main.zip) to Download ZIP. ([ここ](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/archive/refs/heads/main.zip)をクリックして、ZIPファイルをダウンロードします。)
 2. Extract (unzip) the downloaded file to your preferred location, such as your Downloads folder. (ダウンロードしたZIPファイルを解凍・展開してください)
 
-#### Option B: Using Git (Recommended for macOS/Developers) / Gitを使用する（Macや開発者におすすめ）
+### Option B: Using Git (Recommended) / Gitを使用する（おすすめ）
 Open your terminal and run the following commands:
 ターミナルを開き、以下のコマンドを実行します。
 
@@ -50,21 +59,6 @@ Open your terminal and run the following commands:
 git clone [https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git)
 cd KUAS-Wi-Fi-Auto-Login
 ```
-
-### Next Steps / 次の手順
-Once you have downloaded the files, please proceed to the installation instructions for your specific operating system below.
-
-ダウンロードが完了したら、以下の該当するOSのセクションに進み、インストールを行ってください。
-* [For macOS](#for-macos)
-* [For Windows](#for-windows)
-
-
-# For macOS
-
-## Requirements / 動作環境 (macOS)
-* macOS
-* Terminal
-* KUAS On Campus ID
 
 ## Installation / インストール (macOS)
 Open your terminal, navigate to the downloaded folder, and run the following commands.
@@ -95,7 +89,7 @@ Currently, this script has not been tested at the Kyoto Kameoka Campus. It may o
 
 現在、京都亀岡キャンパスでの動作確認は行えていません。現地のネットワーク環境（SSIDや認証サーバーの違いなど）によっては正常に動作しない可能性があります。
 
-## Troubleshooting & Common Issues / トラブルシューティング
+## Troubleshooting / トラブルシューティング (macOS)
 ### 1. Notifications do not appear / スクリプトは動いているが通知が出ない
 macOS treats command-line notifications as coming from "Script Editor". If you don't see success/failure popups in the top right corner, go to System Settings > Notifications, find Script Editor (スクリプトエディタ), and turn on "Allow Notifications".
 
@@ -120,11 +114,29 @@ sudo defaults delete /Library/Preferences/SystemConfiguration/com.apple.captive.
 ```
 
 
-# For Windows
+# Windows
 
 ## Requirements / 動作環境 (Windows)
 * Windows 10 / Windows 11
-* KUAS On Campus ID
+* KUAS On Campus ID (KUAS学内ネットワークID)
+
+## How to Download / ダウンロード方法 (Windows)
+
+Choose one of the following methods to download the scripts to your computer.
+以下のいずれかの方法で、スクリプトをパソコンにダウンロードしてください。
+
+### Option A: Download as a ZIP file (Recommended) / ZIPでダウンロード（おすすめ）
+1. Click [here](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/archive/refs/heads/main.zip) to Download ZIP. ([ここ](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/archive/refs/heads/main.zip)をクリックして、ZIPファイルをダウンロードします。)
+2. Extract (unzip) the downloaded file to your preferred location, such as your Downloads folder. (ダウンロードしたZIPファイルを解凍・展開してください)
+
+### Option B: Using Git / Gitを使用する
+Open your terminal and run the following commands:
+ターミナルを開き、以下のコマンドを実行します。
+
+```bash
+git clone [https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login.git)
+cd KUAS-Wi-Fi-Auto-Login
+```
 
 ## Installation / インストール (Windows)
 1. After downloading and extracting the ZIP file, open the folder. (ダウンロードしたZIPファイルを解凍し、フォルダを開きます)
