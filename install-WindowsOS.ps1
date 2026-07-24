@@ -1,7 +1,7 @@
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Installer for Windows
 # by Shintaro Muraseh (SntMse)
-# v0.1
+# v0.2 Beta
 # -------------------------------------------------------------
 $Host.UI.RawUI.WindowTitle = "KUAS Wi-Fi Auto Login - Installer"
 Write-Host "KUAS Wi-Fi自動ログイン (Windows版) のインストールを開始します..." -ForegroundColor Cyan
@@ -25,7 +25,7 @@ if (-Not (Test-Path $binDir)) { New-Item -ItemType Directory -Path $binDir | Out
 
 # メインスクリプトのコピー
 $scriptPath = "$binDir\SntMse-KUAS-Wi-Fi-Auto-Login.ps1"
-Copy-Item -Path ".\kuas_wifi_windows.ps1" -Destination $scriptPath -Force
+Copy-Item -Path ".\kuas_wifi_WindowsOS.ps1" -Destination $scriptPath -Force
 
 # Windowsタスクスケジューラへの登録（5分ごとにバックグラウンドで実行）
 Write-Host "バックグラウンドタスクを登録しています..."
