@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for macOS
 # Created by Shintaro Muraseh (SntMse)
-# v1.11 (Fixed login messages & Secure POST)
+# vm1.11 (Fixed login messages & Secure POST)
 # -------------------------------------------------------------
 
 # 1. Determine system language
