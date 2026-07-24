@@ -1,4 +1,4 @@
-# -------------------------------------------------------------
+﻿# -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Installer for Windows
 # by Shintaro Muraseh (SntMse)
 $VERSION = "w1.1" # Updated version organization
