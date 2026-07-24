@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 # Installer for KUAS Wi-Fi Auto Login Script
 # Created by Shintaro Muraseh (SntMse)
-# v1.6 (Added CNA popup disable & Bilingual support)
+VERSION="m1.6"
 # -------------------------------------------------------------
 
 # 1. Determine terminal language for localization (Default: English, Japanese if LANG starts with ja)
@@ -15,7 +15,7 @@ fi
 
 # 2. Localize output messages
 if [ "$LANG_JP" = true ]; then
-    MSG_START="KUAS Wi-Fi自動ログイン (macOS版) のインストールを開始します..."
+    MSG_START="SntMse KUAS Wi-Fi自動ログイン ${VERSION}版 のインストールを開始します..."
     MSG_PROMPT_USER="KUASの学籍番号（例: 2021m634）を入力してください: "
     MSG_PROMPT_PASS="パスワードを入力してください: "
     MSG_WIFI="Wi-Fi接続設定をMacに追加しています... (Macのパスワードを求められる場合があります)"
@@ -23,7 +23,7 @@ if [ "$LANG_JP" = true ]; then
     MSG_SUCCESS="インストールと設定が正常に完了しました！"
     MSG_UPDATE="※認証情報を変更したい場合は、再度このスクリプト(./install-macOS.sh)を実行してください。"
 else
-    MSG_START="Starting installation for KUAS Wi-Fi Auto Login (macOS)..."
+    MSG_START="Starting installation for SntMse KUAS Wi-Fi Auto Login v${VERSION}..."
     MSG_PROMPT_USER="Enter your KUAS Student ID (e.g., 2021m634): "
     MSG_PROMPT_PASS="Enter your password: "
     MSG_WIFI="Adding KUAS Wi-Fi profiles to your Mac... (You may be prompted for your Mac's administrator password)"
