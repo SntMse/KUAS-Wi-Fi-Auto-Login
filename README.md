@@ -55,8 +55,8 @@ cd KUAS-Wi-Fi-Auto-Login
 Once you have downloaded the files, please proceed to the installation instructions for your specific operating system below.
 
 ダウンロードが完了したら、以下の該当するOSのセクションに進み、インストールを行ってください。
-* [For macOS](#-for-macos)
-* [For Windows](#-for-windows)
+* [For macOS](#for-macos)
+* [For Windows](#for-windows)
 
 
 # For macOS
