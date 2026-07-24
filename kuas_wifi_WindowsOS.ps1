@@ -1,12 +1,12 @@
-﻿# -------------------------------------------------------------
+﻿﻿# -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for Windows
 # Created by Shintaro Muraseh (SntMse)
-# v0.1 (Windows Native Toast & Secure POST Edition)
+# vw1.0 (Windows Native Toast & Secure POST Edition)
 # -------------------------------------------------------------
 
 $ErrorActionPreference = "SilentlyContinue"
 
-# 1. ターミナル出力の文字化け防止
+# 1. Prevent garbled terminal output (UTF-8 encoding)
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 # 2. Localize output messages
@@ -31,7 +31,7 @@ if ($lang -eq "ja") {
     $NOTIFY_MSG_FAIL = "Authentication failed. Please check your credentials."
 }
 
-# --- Windowsネイティブのトースト通知関数 ---
+# --- Windows Native Toast Notification Function ---
 function Show-Notification {
     param([string]$Title, [string]$Message)
     [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
@@ -48,14 +48,14 @@ function Show-Notification {
 $confPath = "$env:USERPROFILE\.kuas_wifi.conf"
 if (-Not (Test-Path $confPath)) { exit 1 }
 
-# 設定ファイルの読み込み
+# Read configuration file
 Get-Content $confPath | ForEach-Object {
     if ($_ -match "^KUAS_USER=(.*)$") { $KUAS_USER = $matches[1] }
     if ($_ -match "^KUAS_PASS=(.*)$") { $KUAS_PASS = $matches[1] }
 }
 
 # =============================================================
-# 4. Step 1: 完全にインターネットに繋がっているか確認
+# 4. Step 1: Check if already connected to the internet
 # =============================================================
 $appleCheck = curl.exe -s -m 3 http://captive.apple.com/hotspot-detect.html
 if ($appleCheck -match "Success") {
@@ -64,27 +64,27 @@ if ($appleCheck -match "Success") {
 }
 
 # =============================================================
-# 5. Step 2: KUASのログインサーバーが見えるかテスト
+# 5. Step 2: Test if the KUAS captive portal server is reachable
 # =============================================================
 $KUAS_STATUS = curl.exe -s -m 3 -o NUL -w "%{http_code}" https://uzwlan03.kuas.ac.jp/auth/index.html/u
 
-# macOS版同様、302や303(リダイレクト)も許可
+# Allow 302/303 (Redirect) along with 200 (OK), similar to macOS
 if ($KUAS_STATUS -eq "200" -or $KUAS_STATUS -eq "302" -or $KUAS_STATUS -eq "303") {
     
     Write-Output $MSG_LOGGING_IN
     
-    # メインの学籍番号でログイン実行（標準入力を使ってセキュアPOST）
+    # Execute login with primary student ID (Secure POST via stdin)
     $postData = "user=$KUAS_USER&password=$KUAS_PASS"
     $postData | curl.exe -X POST "https://uzwlan03.kuas.ac.jp/auth/index.html/u" -d @- -s -o NUL
          
     Start-Sleep -Seconds 3
     
-    # ログイン成功判定
+    # Check if login was successful
     $appleCheck2 = curl.exe -s -m 3 http://captive.apple.com/hotspot-detect.html
     if ($appleCheck2 -match "Success") {
         Show-Notification -Title $NOTIFY_TITLE -Message $NOTIFY_MSG_SUCCESS
     } else {
-        # 失敗した場合は図書館用でフォールバック
+        # Fallback to Main Library credentials if it fails
         Write-Output $MSG_LOGGING_IN_LIB
         
         $libData = "user=libwifi&password=Kuaslib2023"
