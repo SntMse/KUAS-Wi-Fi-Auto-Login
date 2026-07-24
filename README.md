@@ -16,13 +16,13 @@ It monitors the network every 5 minutes and automatically authenticates only whe
 
 ## Table of Contents / 目次
 * [How to Download / ダウンロード方法](#how-to-download--ダウンロード方法)
-* [For macOS](#-for-macos)
+* [For macOS](#for-macos)
   * [Requirements / 動作環境](#requirements--動作環境-macos)
   * [Installation / インストール](#installation--インストール-macos)
   * [Important Notes / 注意事項](#important-notes--注意事項-macos)
   * [Troubleshooting / トラブルシューティング](#troubleshooting--トラブルシューティング-macos)
   * [Uninstallation / アンインストール](#uninstallation-macos--アンインストール方法-macos)
-* [For Windows](#-for-windows)
+* [For Windows](#for-windows)
   * [Requirements / 動作環境](#requirements--動作環境-windows)
   * [Installation / インストール](#installation--インストール-windows)
   * [Important Notes / 注意事項](#important-notes--注意事項-windows)
