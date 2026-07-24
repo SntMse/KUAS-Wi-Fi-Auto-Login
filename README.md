@@ -39,9 +39,8 @@ Choose one of the following methods to download the scripts to your computer.
 以下のいずれかの方法で、スクリプトをパソコンにダウンロードしてください。
 
 #### Option A: Download as a ZIP file (Recommended for Windows) / ZIPでダウンロード（Windowsにおすすめ）
-1. Click the green **"<> Code"** button at the top of this GitHub page. (このページの右上にある緑色の「<> Code」ボタンをクリックします)
-2. Select **"Download ZIP"**. (「Download ZIP」を選択します)
-3. Extract (unzip) the downloaded file to your preferred location, such as your Downloads folder. (ダウンロードしたZIPファイルを解凍・展開してください)
+1. Click [here](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/archive/refs/heads/main.zip) to Download ZIP. ([ここ](https://github.com/SntMse/KUAS-Wi-Fi-Auto-Login/archive/refs/heads/main.zip)をクリックして、ZIPファイルをダウンロードします。)
+2. Extract (unzip) the downloaded file to your preferred location, such as your Downloads folder. (ダウンロードしたZIPファイルを解凍・展開してください)
 
 #### Option B: Using Git (Recommended for macOS/Developers) / Gitを使用する（Macや開発者におすすめ）
 Open your terminal and run the following commands:
