@@ -1,4 +1,4 @@
-# -------------------------------------------------------------
+﻿# -------------------------------------------------------------
 # KUAS Wi-Fi Auto Login Script for Windows
 # Created by Shintaro Muraseh (SntMse)
 # v0.1 (Windows Native Toast & Secure POST Edition)
